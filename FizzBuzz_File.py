@@ -2,16 +2,13 @@ import numpy as np
 
 def FizzBuzz(start, finish):
     nums = np.arange(start, finish + 1)
-    out = nums.astype(object)
+    out = np.array(nums, dtype=object)
 
-    fizz = nums % 3 == 0
-    buzz = nums % 5 == 0
+    m3 = (nums % 3 == 0)
+    m5 = (nums % 5 == 0)
 
-    out[fizz] = "fizz"
-    out[buzz] = "buzz"
-    out[fizz & buzz] = "fizzbuzz"
+    out[m3] = "fizz"
+    out[m5] = "buzz"
+    out[m3 & m5] = "fizzbuzz"
 
-    for i in out:
-        print(i)
-
-FizzBuzz(16, 30)
+    return out.tolist()
